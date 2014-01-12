@@ -15,7 +15,7 @@ function listCtrl($scope) {
   };
 
   $scope.appName = "READ IT LATER";
-  $scope.version = "1.0.0.1";
+  $scope.version = "1.0.1.0";
 
   $scope.listOptions = 
     [{
