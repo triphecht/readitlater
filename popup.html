@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="" ng-csp="">
+<head>
+  <title>Read It Later</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="popup.css" />
+  <script src="angular.min.js"></script>
+</head>
+
+<body>
+  <section ng-app="readItLaterApp">
+    <div ng-controller="listCtrl">
+      <h1 class="appName">{{ appName }}</h1>
+
+      <nav id="mainNav" class="clearfix">
+        <p class="totalLinks">Total links: {{ toRead.length }}</p>
+        <ul id="listOptionsList">
+          <li ng-repeat="listOption in listOptions"><a href="" ng-click="listOptionClicked(listOption)">{{ listOption.name }}</a></li>
+        </ul>
+      </nav>
+
+      <ul id="toReadList">
+        <li class="listItem" ng-repeat="page in toRead track by $index">
+          <a class="removeItemBtn" href="" ng-click="removeItem($index)">X</a>
+          <a class="itemBtn" href="" ng-click="itemClicked(page)">{{ page.title }}</a>
+        </li>
+      </ul>
+    </div> <!-- listCtrl -->
+  </section> <!-- readItLaterApp -->
+
+  <script src="popup.js"></script>
+</body>
+</html>
