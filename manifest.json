@@ -3,7 +3,7 @@
 
     "name": "Read It Later",
     "description": "Read It Later",
-    "version": "1.0",
+    "version": "1.0.1.1",
 
     "background": {
       "scripts": ["background.js"]

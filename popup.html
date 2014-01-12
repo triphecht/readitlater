@@ -10,7 +10,7 @@
 <body>
   <section ng-app="readItLaterApp">
     <div ng-controller="listCtrl">
-      <h1 class="appName">{{ appName }}</h1>
+      <h1 class="appName">{{ appName }} <span class="version">v{{ version }}</span></h1>
 
       <nav id="mainNav" class="clearfix">
         <p class="totalLinks">Total links: {{ toRead.length }}</p>
@@ -22,7 +22,10 @@
       <ul id="toReadList">
         <li class="listItem" ng-repeat="page in toRead track by $index">
           <a class="removeItemBtn" href="" ng-click="removeItem($index)">X</a>
-          <a class="itemBtn" href="" ng-click="itemClicked(page)">{{ page.title }}</a>
+          <a class="itemBtn" href="" ng-click="itemClicked(page)">{{ $index + 1 }}. {{ truncate(page.title) }}</a>
+          <div class="moveDownBtn moveBtn" href="" ng-click="moveDown($index)"></div>
+          <div class="moveUpBtn moveBtn" href="" ng-click="moveUp($index)"></div>
+          <div class="clearfix"></div>
         </li>
       </ul>
     </div> <!-- listCtrl -->

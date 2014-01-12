@@ -1,8 +1,21 @@
-
-
 function listCtrl($scope) {
 
+  $scope.truncate = function(text) {
+    var length = 45;
+    var end = '...';
+
+    if (text.length <= length) {
+        return text;
+    }
+
+    else {
+        return String(text).substring(0, length-end.length) + end;
+    }
+    return 'fuck';
+  };
+
   $scope.appName = "READ IT LATER";
+  $scope.version = "1.0.0.1";
 
   $scope.listOptions = 
     [{
@@ -40,7 +53,23 @@ function listCtrl($scope) {
   $scope.removeItem = function(index) {
     $scope.toRead.splice(index, 1);
     localStorage.setItem('ReadItLater', JSON.stringify($scope.toRead));
-  }
+  };
+
+  $scope.moveUp = function(index) {
+    if(index > 0) {
+      var tempItem = $scope.toRead[index];
+      $scope.toRead[index] = $scope.toRead[index - 1];
+      $scope.toRead[index - 1] = tempItem;
+    }
+  };
+
+  $scope.moveDown = function(index) {
+    if(index < $scope.toRead.length - 1) {
+      var tempItem = $scope.toRead[index];
+      $scope.toRead[index] = $scope.toRead[index + 1];
+      $scope.toRead[index + 1] = tempItem;
+    }
+  };
 
   $scope.addCurrentPage = function() {
       chrome.tabs.query({
@@ -100,5 +129,5 @@ function listCtrl($scope) {
       default:
         console.log('Something went wrong.');
     }
-  }
+  };
 }
