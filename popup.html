@@ -22,7 +22,7 @@
       <ul id="toReadList">
         <li class="listItem" ng-repeat="page in toRead track by $index">
           <a class="removeItemBtn" href="" ng-click="removeItem($index)">X</a>
-          <a class="itemBtn" href="" ng-click="itemClicked(page)">{{ $index + 1 }}. {{ truncate(page.title) }}</a>
+          <a class="itemBtn" href="" ng-click="itemClicked(page)" title="{{ page.title }}">{{ $index + 1 }}. {{ truncate(page.title) }}</a>
           <div class="moveDownBtn moveBtn" href="" ng-click="moveDown($index)"></div>
           <div class="moveUpBtn moveBtn" href="" ng-click="moveUp($index)"></div>
           <div class="clearfix"></div>
